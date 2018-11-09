@@ -8,14 +8,13 @@ import {
 } from 'react-native';
 import { Button, ButtonGroup } from 'react-native-elements'
 
-//Dice Functions:
-// const roll100 = d20.roll('1d100');
-// const roll20 = d20.roll(20)
-// const roll12 = d20.roll('1d12')
-// const roll10 = d20.roll('1d10')
-// const roll8 = d20.roll('1d8')
-// const roll6 = d20.roll('1d6')
-// const roll4 = d20.roll('1d4')
+const roll100 = () => d20.roll('1d100');
+const roll20 = () => d20.roll(20)
+const roll12 = () => d20.roll('1d12')
+const roll10 = () => d20.roll('1d10')
+const roll8 = () => d20.roll('1d8')
+const roll6 = () => d20.roll('1d6')
+const roll4 = () => d20.roll('1d4')
 
 
 export default class RollingScreen extends React.Component {
@@ -38,65 +37,60 @@ export default class RollingScreen extends React.Component {
 
   render() {
     return (
-      // <Text>Hero Roller!</Text>
       <View>
         <Button
           onPress={() => {
-            let result = d20.roll('1d100');
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            this.updateDice(roll100)
           }}
           raised
-          title='ROLL d100!' />
+          title='SELECT d100!' />
         <Button
           onPress={() => {
-            let result = d20.roll(20);
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            this.updateDice(roll20)
           }}
           raised
-          title='ROLL d20!' />
+          title='SELECT d20!' />
         <Button
           onPress={() => {
-            let result = d20.roll('1d12');
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            this.updateDice(roll12)
           }}
           raised
-          title='ROLL d12!' />
+          title='SELECT d12!' />
         <Button
           onPress={() => {
-            let result = d20.roll('1d10');
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            this.updateDice(roll10)
           }}
           raised
-          title='ROLL d10!' />
+          title='SELECT d10!' />
         <Button
           onPress={() => {
-            let result = d20.roll('1d8');
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            this.updateDice(roll8)
           }}
           raised
-          title='ROLL d8!' />
+          title='SELECT d8!' />
         <Button
           onPress={() => {
-            let result = d20.roll('1d6');
-            this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+           this.updateDice(roll6)
           }}
           raised
-          title='ROLL d6!' />
+          title='SELECT d6!' />
         <Button
           onPress={() => {
-            let result = d20.roll('1d4');
+           this.updateDice(roll4)
+          }}
+          raised
+          title='SELECT d4!' />
+
+
+        <Button
+          onPress={() => {
+            let result = this.state.selectedDice();
             this.updateResult(result)
             Alert.alert(`You rolled a ${result}!`)
           }}
           raised
-          title='ROLL d4!' />
-          <Text>You rolled {this.state.result}!</Text>
+          title='ROLL!' />
+          <Text>YOU ROLLED {this.state.result}!</Text>
       </View>
     )
   }
