@@ -6,7 +6,10 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
-import { Button, ButtonGroup } from 'react-native-elements'
+import { Button, Header } from 'react-native-elements'
+// import RNShake from 'react-native-shake';
+// import RNShakeEvent from 'react-native-shake-event';
+
 
 const roll100 = () => d20.roll('1d100');
 const roll20 = () => d20.roll(20)
@@ -27,6 +30,32 @@ export default class RollingScreen extends React.Component {
     this.updateDice = this.updateDice.bind(this)
     this.updateResult = this.updateResult.bind(this)
   }
+
+  static navigationOptions = {
+    title: 'HERO ROLLER!',
+    headerStyle: {
+      backgroundColor: '#e0430f',
+    },
+    headerTintColor: '#f7f5f4',
+    // headerTitleStyle: {
+    //   fontWeight: 'bold',
+    //   alignSelf: 'center',
+    //   justifyContent: 'center'
+    // }
+    //above not working
+  }
+
+  // componentWillMount() {
+  //   RNShake.addEventListener('shake', () => {
+  //       let result = this.state.selectedDice();
+  //       this.updateResult(result)
+  //       Alert.alert(`You rolled a ${result}!`)
+  //   })
+  // }
+
+  // componentWillUnmount() {
+  //   RNShake.removeEventListener('shake');
+  // }
 
   updateDice (selectedDice) {
     this.setState({selectedDice})
@@ -70,13 +99,13 @@ export default class RollingScreen extends React.Component {
           title='SELECT d8!' />
         <Button
           onPress={() => {
-           this.updateDice(roll6)
+            this.updateDice(roll6)
           }}
           raised
           title='SELECT d6!' />
         <Button
           onPress={() => {
-           this.updateDice(roll4)
+            this.updateDice(roll4)
           }}
           raised
           title='SELECT d4!' />
