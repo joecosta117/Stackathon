@@ -7,8 +7,6 @@ import {
   Alert
 } from 'react-native';
 import CharacterScreen from './CharacterScreen'
-// import {CharacterStack} from '../navigation/MainTabNavigator'
-import {StackNavigator, createStackNavigator} from 'react-navigation';
 import { Button, Header } from 'react-native-elements'
 // import RNShake from 'react-native-shake';
 // import RNShakeEvent from 'react-native-shake-event';
@@ -117,11 +115,10 @@ export default class RollingScreen extends React.Component {
           onPress={() => {
             let result = this.state.selectedDice();
             this.updateResult(result)
-            // Alert.alert(`You rolled a ${result}!`)
           }}
           raised
           title='ROLL!' />
-          <Text onPress={() => navigate('CharacterStack')}>See the heroes</Text>
+
           <Text style={[styles.result]}>YOU ROLLED:</Text>
           <Text style={[styles.resultscore]}>{this.state.result}</Text>
       </View>

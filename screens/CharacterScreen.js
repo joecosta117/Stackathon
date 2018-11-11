@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import { Button, Header } from 'react-native-elements'
 import axios from 'axios'
-import {StackNavigator, createStackNavigator} from 'react-navigation';
 
 export default class CharacterScreen extends React.Component {
   constructor() {
@@ -62,13 +61,12 @@ export default class CharacterScreen extends React.Component {
   }
 
   render() {
-    const { navigate } = this.props.navigation
-
     if (this.state.selected === false) {
       return (
         <View>
           <Text>Select your hero and start rolling!</Text>
             {this.state.characters.map(character =>
+              character.race ?
               <Button
                 onPress={() => {
                   this.updateSelectedCharacter(character)
@@ -77,6 +75,16 @@ export default class CharacterScreen extends React.Component {
                 key={character.id}
                 raised
                 title={`${character.name}: ${character.race} ${character.class}`}
+              />
+              :
+              <Button
+                onPress={() => {
+                  this.updateSelectedCharacter(character)
+                  this.updateSelected(true)
+                }}
+                key={character.id}
+                raised
+                title={`${character.name}`}
               />
             )}
         </View>
@@ -93,7 +101,7 @@ export default class CharacterScreen extends React.Component {
               }}
               key={diceset.id}
               raised
-              title={`Roll ${diceset.dice}!`}
+              title={`Roll ${diceset.dice} for ${diceset.name}!`}
             />
           )}
           <Text>YOU ROLLED:</Text>
