@@ -7,7 +7,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import RollingScreen from '../screens/RollingScreen'
 import CharacterScreen from '../screens/CharacterScreen'
-import SingleCharacterScreen from '../screens/SingleCharacterScreen'
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -68,20 +68,6 @@ CharacterStack.navigationOptions = {
     />
   ),
 };
-
-// export const SingleCharacterStack = createStackNavigator({
-//   SingleCharacter: SingleCharacterScreen,
-// });
-
-// SingleCharacterStack.navigationOptions = {
-//   tabBarLabel: 'Heroes',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-//     />
-//   ),
-// };
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
