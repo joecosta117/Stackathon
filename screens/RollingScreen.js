@@ -6,6 +6,9 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
+import CharacterScreen from './CharacterScreen'
+// import {CharacterStack} from '../navigation/MainTabNavigator'
+import {StackNavigator, createStackNavigator} from 'react-navigation';
 import { Button, Header } from 'react-native-elements'
 // import RNShake from 'react-native-shake';
 // import RNShakeEvent from 'react-native-shake-event';
@@ -19,6 +22,9 @@ const roll8 = () => d20.roll('1d8')
 const roll6 = () => d20.roll('1d6')
 const roll4 = () => d20.roll('1d4')
 
+const CharacterStack = createStackNavigator({
+  Characters: CharacterScreen,
+});
 
 export default class RollingScreen extends React.Component {
   constructor() {
@@ -65,6 +71,7 @@ export default class RollingScreen extends React.Component {
   }
 
   render() {
+    const {navigate} = this.props.navigation
     return (
       <View>
         <Button
@@ -110,17 +117,31 @@ export default class RollingScreen extends React.Component {
           raised
           title='SELECT d4!' />
 
-
         <Button
           onPress={() => {
             let result = this.state.selectedDice();
             this.updateResult(result)
-            Alert.alert(`You rolled a ${result}!`)
+            // Alert.alert(`You rolled a ${result}!`)
           }}
           raised
           title='ROLL!' />
-          <Text>YOU ROLLED {this.state.result}!</Text>
+          <Text onPress={() => navigate('CharacterStack')}>See the heroes</Text>
+          <Text style={[styles.result]}>YOU ROLLED:</Text>
+          <Text style={[styles.resultscore]}>{this.state.result}</Text>
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  result: {
+    fontWeight: 'bold',
+    fontSize: 40,
+    alignSelf: 'center'
+  },
+  resultscore: {
+    fontWeight: 'bold',
+    fontSize: 60,
+    alignSelf: 'center'
+  }
+})

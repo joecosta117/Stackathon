@@ -7,6 +7,8 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import RollingScreen from '../screens/RollingScreen'
+import CharacterScreen from '../screens/CharacterScreen'
+import SingleCharacterScreen from '../screens/SingleCharacterScreen'
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -54,12 +56,12 @@ RollingStack.navigationOptions = {
   ),
 };
 
-const CharactersStack = createStackNavigator({
-  Characters: SettingsScreen,
+const CharacterStack = createStackNavigator({
+  Character: CharacterScreen,
 });
 
-CharactersStack.navigationOptions = {
-  tabBarLabel: 'Characters!',
+CharacterStack.navigationOptions = {
+  tabBarLabel: 'Heroes',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -67,6 +69,34 @@ CharactersStack.navigationOptions = {
     />
   ),
 };
+
+// export const SingleCharacterStack = createStackNavigator({
+//   SingleCharacter: SingleCharacterScreen,
+// });
+
+// SingleCharacterStack.navigationOptions = {
+//   tabBarLabel: 'Heroes',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+//     />
+//   ),
+// };
+
+// const CharactersStack = createStackNavigator({
+//   Characters: SettingsScreen,
+// });
+
+// CharactersStack.navigationOptions = {
+//   tabBarLabel: 'Characters!',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+//     />
+//   ),
+// };
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
@@ -86,6 +116,6 @@ export default createBottomTabNavigator({
   HomeStack,
   RollingStack,
   LinksStack,
-  CharactersStack,
-  SettingsStack,
+  CharacterStack,
+  SettingsStack
 });
