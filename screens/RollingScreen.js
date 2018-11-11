@@ -11,15 +11,6 @@ import { Button, Header } from 'react-native-elements'
 // import RNShake from 'react-native-shake';
 // import RNShakeEvent from 'react-native-shake-event';
 
-
-const roll100 = () => d20.roll('1d100');
-const roll20 = () => d20.roll(20)
-const roll12 = () => d20.roll('1d12')
-const roll10 = () => d20.roll('1d10')
-const roll8 = () => d20.roll('1d8')
-const roll6 = () => d20.roll('1d6')
-const roll4 = () => d20.roll('1d4')
-
 export default class RollingScreen extends React.Component {
   constructor() {
     super()
@@ -70,54 +61,46 @@ export default class RollingScreen extends React.Component {
       <View>
         <Button
           onPress={() => {
-            this.updateDice(roll100)
+            this.updateResult(d20.roll('1d100'))
           }}
           raised
-          title='SELECT d100!' />
+          title='ROLL 1d100!' />
         <Button
           onPress={() => {
-            this.updateDice(roll20)
+            this.updateResult(d20.roll('1d20'))
           }}
           raised
-          title='SELECT d20!' />
+          title='ROLL 1d20!' />
         <Button
           onPress={() => {
-            this.updateDice(roll12)
+            this.updateResult(d20.roll('1d12'))
           }}
           raised
-          title='SELECT d12!' />
+          title='ROLL 1d12!' />
         <Button
           onPress={() => {
-            this.updateDice(roll10)
+            this.updateResult(d20.roll('1d10'))
           }}
           raised
-          title='SELECT d10!' />
+          title='ROLL 1d10!' />
         <Button
           onPress={() => {
-            this.updateDice(roll8)
+            this.updateResult(d20.roll('1d8'))
           }}
           raised
-          title='SELECT d8!' />
+          title='ROLL 1d8!' />
         <Button
           onPress={() => {
-            this.updateDice(roll6)
+            this.updateResult(d20.roll('1d6'))
           }}
           raised
-          title='SELECT d6!' />
+          title='ROLL 1d6!' />
         <Button
           onPress={() => {
-            this.updateDice(roll4)
+            this.updateResult(d20.roll('1d4'))
           }}
           raised
-          title='SELECT d4!' />
-
-        <Button
-          onPress={() => {
-            let result = this.state.selectedDice();
-            this.updateResult(result)
-          }}
-          raised
-          title='ROLL!' />
+          title='ROLL 1d4!' />
 
           <Text style={[styles.result]}>YOU ROLLED:</Text>
           <Text style={[styles.resultscore]}>{this.state.result}</Text>

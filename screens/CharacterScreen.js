@@ -8,6 +8,22 @@ import {
 } from 'react-native';
 import { Button, Header } from 'react-native-elements'
 import axios from 'axios'
+import t from 'tcomb-form-native'
+
+const Form = t.form.Form
+
+const Dice = t.struct({
+  description: t.maybe(t.String),
+  dice: t.String,
+})
+
+const options = {
+  fields: {
+    dice: {
+      error: 'Need some dice to roll against goblins'
+    }
+  }
+}
 
 export default class CharacterScreen extends React.Component {
   constructor() {
@@ -16,26 +32,36 @@ export default class CharacterScreen extends React.Component {
       characters: [],
       selectedCharacter: {},
       result: '#',
-      selected: false
+      selected: false,
+      dice: false
     }
     this.updateSelectedCharacter = this.updateSelectedCharacter.bind(this)
     this.updateSelectedDiceSet = this.updateSelectedDiceSet.bind(this)
     this.updateResult = this.updateResult.bind(this)
     this.updateSelected = this.updateSelected.bind(this)
+    this.updateDice = this.updateDice.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   async componentDidMount() {
     const characters = await axios.get('https://hero-roller.herokuapp.com/api/characters')
-    // console.log('heroessssss: ', characters.data)
-    //characters.data[0] accesses rykar's character object
     this.setState({characters: characters.data})
   }
 
   async shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.selected !== this.props.selected) {
+    if (nextProps !== this.props) {
       return true
     } else {
       return false
+    }
+  }
+
+  async ComponentDidUpdate (prevProps, prevState) {
+    let oldCharacters = this.prevProps.characters
+    let newCharacters = this.props.characters
+    if (oldCharacters !== newCharacters) {
+      const characters = await axios.get('https://hero-roller.herokuapp.com/api/characters')
+      this.setState({characters: characters.data})
     }
   }
 
@@ -58,6 +84,14 @@ export default class CharacterScreen extends React.Component {
   }
   updateResult (result) {
     this.setState({result})
+  }
+  updateDice (bool) {
+    this.setState({dice: bool})
+  }
+  async handleSubmit () {
+    const value = this._form.getValue()
+    await axios.post('https://hero-roller.herokuapp.com/api/dicesets', value)
+    Alert.alert('Dice set added!')
   }
 
   render() {
@@ -106,6 +140,16 @@ export default class CharacterScreen extends React.Component {
           )}
           <Text>YOU ROLLED:</Text>
           <Text>{this.state.result}</Text>
+
+          {/*<Button
+            onPress={async () => {
+              await axios.delete(`https://hero-roller.herokuapp.com/api/characters/${selectedCharacter.id}`)
+              Alert.alert('Hero retired from adventuring!')
+            }}
+            raised
+            title='Retire this hero from your party'
+          />*/}
+
           <Button
             onPress={() => {
               this.updateSelected(false)
