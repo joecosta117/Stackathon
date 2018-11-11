@@ -58,7 +58,7 @@ export default class RollingScreen extends React.Component {
   render() {
     const {navigate} = this.props.navigation
     return (
-      <View>
+      <View style={styles.container}>
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d100'))
@@ -119,5 +119,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 60,
     alignSelf: 'center'
-  }
+  },
+  container: {
+    justifyContent: 'center',
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: '#ffffff',
+  },
 })

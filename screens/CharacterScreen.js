@@ -98,6 +98,7 @@ export default class CharacterScreen extends React.Component {
     if (this.state.selected === false) {
       return (
         <View>
+          <ScrollView>
           <Text>Select your hero and start rolling!</Text>
             {this.state.characters.map(character =>
               character.race ?
@@ -121,6 +122,7 @@ export default class CharacterScreen extends React.Component {
                 title={`${character.name}`}
               />
             )}
+          </ScrollView>
         </View>
       )
     } else {
@@ -138,8 +140,8 @@ export default class CharacterScreen extends React.Component {
               title={`Roll ${diceset.dice} for ${diceset.name}!`}
             />
           )}
-          <Text>YOU ROLLED:</Text>
-          <Text>{this.state.result}</Text>
+          <Text style={[styles.result]}>YOU ROLLED:</Text>
+          <Text style={[styles.resultscore]}>{this.state.result}</Text>
 
           {/*<Button
             onPress={async () => {
@@ -164,6 +166,15 @@ export default class CharacterScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
+  result: {
+    fontWeight: 'bold',
+    fontSize: 40,
+    alignSelf: 'center'
+  },
+  resultscore: {
+    fontWeight: 'bold',
+    fontSize: 60,
+    alignSelf: 'center'
+  }
 })
 
