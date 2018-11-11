@@ -22,10 +22,10 @@ export default class SingleCharacterScreen extends React.Component {
     this.updateResult = this.updateResult.bind(this)
   }
 
-  async componentDidMount() {
-    const sets = await axios.get(`https://hero-roller.herokuapp.com/api/characters/${this.props.character.id}`)
-    this.setState({dicesets: sets.data.dicesets})
-  }
+  // async componentDidMount() {
+  //   const sets = await axios.get(`https://hero-roller.herokuapp.com/api/characters/${this.props.character.id}`)
+  //   this.setState({dicesets: sets.data.dicesets})
+  // }
 
   // updateSelectedSet (selectedSet) {
   //   this.setState({selectedSet})

@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import StackNavigator from './navigation/StackNavigator'
 const d20 = require('d20')
 
 export default class App extends React.Component {
@@ -22,6 +23,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          {/*<StackNavigator />*/}
           <AppNavigator />
         </View>
       );

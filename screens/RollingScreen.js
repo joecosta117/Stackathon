@@ -22,10 +22,6 @@ const roll8 = () => d20.roll('1d8')
 const roll6 = () => d20.roll('1d6')
 const roll4 = () => d20.roll('1d4')
 
-const CharacterStack = createStackNavigator({
-  Characters: CharacterScreen,
-});
-
 export default class RollingScreen extends React.Component {
   constructor() {
     super()

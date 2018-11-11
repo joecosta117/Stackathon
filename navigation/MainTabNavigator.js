@@ -1,7 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
@@ -76,20 +75,6 @@ CharacterStack.navigationOptions = {
 
 // SingleCharacterStack.navigationOptions = {
 //   tabBarLabel: 'Heroes',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-//     />
-//   ),
-// };
-
-// const CharactersStack = createStackNavigator({
-//   Characters: SettingsScreen,
-// });
-
-// CharactersStack.navigationOptions = {
-//   tabBarLabel: 'Characters!',
 //   tabBarIcon: ({ focused }) => (
 //     <TabBarIcon
 //       focused={focused}

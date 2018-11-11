@@ -8,11 +8,12 @@ import {
 } from 'react-native';
 // import {Link} from 'react-router-dom'
 import { Button, Header } from 'react-native-elements'
-// import {
-//   navigate
-// } from 'react-navigation';
+import {StackNavigator, createStackNavigator} from 'react-navigation';
 import SingleCharacterScreen from './SingleCharacterScreen'
 
+// const SingleCharacterStack = createStackNavigator({
+//   SingleCharacter: SingleCharacterScreen,
+// });
 
 const SingleCharacterButton = props => {
   // const { navigate } = props.navigation;
@@ -20,7 +21,7 @@ const SingleCharacterButton = props => {
     <View>
       <Button
         onPress={() =>
-          navigate('SingleCharacterScreen', { screen: 'SingleCharacterScreen' })
+          props.navigation.navigate('SingleCharacter')
         }
         raised
         title={`${props.character.name}: ${props.character.race} ${props.character.class}`}
