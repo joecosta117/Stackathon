@@ -26,15 +26,9 @@ export default class RollingScreen extends React.Component {
   static navigationOptions = {
     title: 'HERO ROLLER!',
     headerStyle: {
-      backgroundColor: '#e0430f',
+      backgroundColor: '#e0430f'
     },
-    headerTintColor: '#f7f5f4',
-    // headerTitleStyle: {
-    //   fontWeight: 'bold',
-    //   alignSelf: 'center',
-    //   justifyContent: 'center'
-    // }
-    //above not working
+    headerTintColor: '#f7f5f4'
   }
 
   // componentWillMount() {

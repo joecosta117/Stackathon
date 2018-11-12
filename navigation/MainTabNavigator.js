@@ -84,8 +84,8 @@ EditStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
-  // HomeStack,
   RollingStack,
   CharacterStack,
   EditStack
 });
+

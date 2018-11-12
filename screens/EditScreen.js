@@ -28,10 +28,10 @@ const Dice = t.struct({
 const options = {
   fields: {
     name: {
-      error: 'Without a name, your new hero will feel left out'
+      error: 'What is a hero without a name?'
     },
     dice: {
-      error: 'Need some dice to roll against goblins'
+      error: 'How will you defeat the dragon without dice?'
     }
   }
 }
