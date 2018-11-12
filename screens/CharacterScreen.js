@@ -4,9 +4,10 @@ import {
   View,
   ScrollView,
   StyleSheet,
-  Alert
+  Alert,
+  ImageBackground
 } from 'react-native';
-import { Button, Header } from 'react-native-elements'
+import { Button, Header, Divider, Badge } from 'react-native-elements'
 import axios from 'axios'
 import t from 'tcomb-form-native'
 
@@ -97,9 +98,10 @@ export default class CharacterScreen extends React.Component {
   render() {
     if (this.state.selected === false) {
       return (
-        <View>
+        <View style={styles.container}>
           <ScrollView>
-          <Text>Select your hero and start rolling!</Text>
+          <Text style={styles.text}>CHOOSE YOUR HERO!</Text>
+          <Divider style={{ backgroundColor: 'red', height: 4 }} />
             {this.state.characters.map(character =>
               character.race ?
               <Button
@@ -128,12 +130,17 @@ export default class CharacterScreen extends React.Component {
     } else {
       let selectedCharacter = this.state.selectedCharacter
       return (
-        <View>
-          <Text>Roll for {selectedCharacter.name}!</Text>
+        <View style={styles.container}>
+          <Text style={styles.text}>ROLL FOR {selectedCharacter.name.toUpperCase()}!</Text>
+          <Divider style={{ backgroundColor: 'red', height: 4 }} />
           {selectedCharacter.dicesets.map(diceset =>
             <Button
               onPress={() => {
                 this.updateResult(d20.roll(diceset.dice))
+              }}
+              titleStyle={{
+                fontWeight: 'bold',
+                size: 20
               }}
               key={diceset.id}
               raised
@@ -157,7 +164,7 @@ export default class CharacterScreen extends React.Component {
               this.updateSelected(false)
             }}
             raised
-            title='Return to the other Heroes'
+            title='Return to your Heroes'
           />
         </View>
       )
@@ -175,6 +182,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 60,
     alignSelf: 'center'
-  }
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    alignSelf: 'center'
+  },
+  container: {
+    justifyContent: 'center',
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: '#ffffff',
+  },
 })
 

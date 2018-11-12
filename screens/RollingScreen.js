@@ -4,10 +4,11 @@ import {
   View,
   ScrollView,
   StyleSheet,
-  Alert
+  Alert,
+  ImageBackground
 } from 'react-native';
 import CharacterScreen from './CharacterScreen'
-import { Button, Header } from 'react-native-elements'
+import { Button, Header, Divider, Badge } from 'react-native-elements'
 // import RNShake from 'react-native-shake';
 // import RNShakeEvent from 'react-native-shake-event';
 
@@ -64,45 +65,110 @@ export default class RollingScreen extends React.Component {
             this.updateResult(d20.roll('1d100'))
           }}
           raised
+          titleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderWidth: 0,
+            borderRadius: 5
+          }}
           title='ROLL 1d100!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d20'))
           }}
           raised
+          titleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d20!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d12'))
           }}
           raised
+          titleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d12!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d10'))
           }}
           raised
+          stitleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d10!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d8'))
           }}
           raised
+          titleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d8!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d6'))
           }}
           raised
+          titleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d6!' />
         <Button
           onPress={() => {
             this.updateResult(d20.roll('1d4'))
           }}
           raised
+          stitleStyle={{
+            fontWeight: 'bold',
+            color: 'black'
+          }}
+          buttonStyle={{
+            // backgroundColor: '#ffd699',
+            borderColor: "transparent",
+            borderRadius: 5
+          }}
           title='ROLL 1d4!' />
 
           <Text style={[styles.result]}>YOU ROLLED:</Text>
+          <Divider style={{ backgroundColor: 'red', height: 4 }} />
           <Text style={[styles.resultscore]}>{this.state.result}</Text>
       </View>
     )
@@ -122,8 +188,10 @@ const styles = StyleSheet.create({
   },
   container: {
     justifyContent: 'center',
-    marginTop: 20,
-    padding: 20,
+    marginTop: 30,
+    padding: 0,
     backgroundColor: '#ffffff',
-  },
+    // #ffffff
+    // #ffe0b3
+  }
 })
