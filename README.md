@@ -30,8 +30,4 @@ A specific hero (Xarro the wizard) after rolling for "fireball"
 
 
 Since Hero Roller was built over 3 days, the functionality is rudimentary. If I had more time, I would add a number of features, such as:
--sign up and login for users
--improve the styling
--remove characters and dice sets as a logged in user
--create a screen view for miscellaneous dice sets that aren't tied to a specific hero
--create a history page to show your most recent dice rolls
+sign up and login for users, improve the styling, remove characters and dice sets as a logged in user, create a screen view for miscellaneous dice sets that aren't tied to a specific hero, and create a history page to show your most recent dice rolls
