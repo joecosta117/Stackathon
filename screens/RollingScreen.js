@@ -64,7 +64,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderWidth: 0,
             borderRadius: 5
@@ -80,7 +79,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -95,7 +93,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -110,7 +107,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -125,7 +121,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -140,7 +135,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -155,7 +149,6 @@ export default class RollingScreen extends React.Component {
             color: 'black'
           }}
           buttonStyle={{
-            // backgroundColor: '#ffd699',
             borderColor: "transparent",
             borderRadius: 5
           }}
@@ -185,7 +178,5 @@ const styles = StyleSheet.create({
     marginTop: 30,
     padding: 0,
     backgroundColor: '#ffffff',
-    // #ffffff
-    // #ffe0b3
   }
 })
