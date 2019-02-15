@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import CharacterScreen from './CharacterScreen'
 import { Button, Header, Divider, Badge } from 'react-native-elements'
+//for shake event, but didn't get it to work in time before hackathon ended
 // import RNShake from 'react-native-shake';
 // import RNShakeEvent from 'react-native-shake-event';
 
@@ -31,6 +32,7 @@ export default class RollingScreen extends React.Component {
     headerTintColor: '#f7f5f4'
   }
 
+//for shake event, but didn't get it to work in time before hackathon ended
   // componentWillMount() {
   //   RNShake.addEventListener('shake', () => {
   //       let result = this.state.selectedDice();
@@ -39,6 +41,7 @@ export default class RollingScreen extends React.Component {
   //   })
   // }
 
+//for shake event, but didn't get it to work in time before hackathon ended
   // componentWillUnmount() {
   //   RNShake.removeEventListener('shake');
   // }
